@@ -2,29 +2,41 @@ body {
 	margin: 0;
 	padding: 0;
 	text-align: center;
-	background-color: bisque;
+	background-color: none;
 }
-/*banner*/
+/*banner & main */
 .banner {
 	display: flex;
-	
+
+	background-image: url(https://images.unsplash.com/photo-1626814026160-2237a95fc5a0?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D);
+	background-position: center;
 	flex-direction: row;
 	justify-content: space-between;
 	text-align: center;
 	background-color: aqua;
-	background-size: cover;
-	min-height: 150px;
+	background-size:cover;
+	height: 300px;
+	width: 100%;
+	color: black;
+	
 }
 h1, h2, .popcorn {
 	margin: 0;
 	padding: 12px;
 	font-size: 1.5rem;
 	line-height: 2rem;
+	
 }
 .popcorn {
 	font-size: 2rem;;
 }
 .searchbar-and-btn {
-	margin: -12px;
+	margin: -10px;
 	margin-right: 0;
+}
+/*article*/
+article {
+	font-size: 2.5rem;
+	margin: auto;
+	padding: 2rem;
 }
