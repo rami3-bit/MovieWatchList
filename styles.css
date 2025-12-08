@@ -1,0 +1,37 @@
+body {
+	margin: 0;
+	padding: 0;
+	text-align: center;
+	background-color: none;
+	
+}
+/*banner & main */
+.banner {
+	background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(https://images.unsplash.com/photo-1626814026160-2237a95fc5a0?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D);
+	background-size:cover;
+	height: 300px;
+	width: 100%;
+	display: flex;
+	text-align: center;
+	justify-content: center;
+}
+.banner-text {
+	display: flex;
+	background-position: center;
+	flex-direction: row;
+	font-size: 1rem;
+	color: white;
+	align-items: center;
+	gap:12px;
+	font-size: 1.4rem;
+}
+.searchbar-and-btn {
+	margin: -10px;
+	margin-right: 0;
+}
+/*article*/
+article {
+	font-size: 1.5rem;
+	margin-top: auto ;
+	padding: 2rem;
+}
