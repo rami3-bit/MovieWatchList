@@ -2,8 +2,8 @@ body {
 	margin: 0;
 	padding: 0;
 	text-align: center;
-	background-color: none;
-	
+	background-color: grey;
+	font-family: 'Cinzel', serif;
 }
 /*banner & main */
 .banner {
@@ -28,6 +28,17 @@ body {
 .searchbar-and-btn {
 	margin: -10px;
 	margin-right: 0;
+}
+#watchlist-btn {
+background-color: rgba(255, 215, 0, 0.7); /* Guld med transparens */
+    color: black;
+    border: 2px solid #000; /* Svart kant */
+    padding: 10px 20px;
+    border-radius: 5px;
+    display: inline-flex; /* Gör att ikonen och texten ligger snyggt bredvid varandra */
+    align-items: center;
+    gap: 8px; /* Mellanrum mellan ikon och text */
+    cursor: pointer;
 }
 /*article*/
 article {
