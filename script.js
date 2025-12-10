@@ -18,17 +18,22 @@ fetch(`https://www.omdbapi.com/?s=${searchBar}&type=movie&apikey=270adad6`)
                 data.Search.forEach(film => {
 					
                     filmList += `
-                        <div class="film-item">
-                            <img src="${film.Poster}" alt="Poster of ${film.Title}" style="width: 100px;">
-                            <h3>Title: ${film.Title}</h3>
-                            <p>Year: ${film.Year}</p>
-							<p>Year: ${film.ImdbRating}</p>
-                        </div>
+                            <div class="film-item">
+								<div class="film-poster">
+                                	<img src="${film.Poster}" alt="Poster of ${film.Title}" style="width: 100px;">
+								</div>
+								<div class="film-details">
+                                	<h3>${film.Title}</h3>
+                                	<p> ⭐ ${film.imdbRating}</p>
+                                	<p>Length: ${film.Runtime}</p>
+									<p>Add watchlist + </p>
+                                	<p>Description: ${film.Plot}</p>
+								</div>
+                            </div>
+							<hr>
                     `;
+					document.getElementById("search-result").innerHTML = filmList;
                 });
-
-                // Sätt in hela listan av filmer i search-result elementet
-                document.getElementById("search-result").innerHTML = filmList;
 			}
 	})
 })
