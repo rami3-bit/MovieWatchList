@@ -5,7 +5,7 @@ document.getElementById("search-btn").addEventListener("click", function() {
         document.getElementById("explore").style.display = "none";
     } 
 
-fetch(`http://www.omdbapi.com/?s=${searchBar}&type=movie&apikey=270adad6`)
+fetch(`https://www.omdbapi.com/?s=${searchBar}&type=movie&apikey=270adad6`)
 	.then(res => res.json())
 	.then(data =>  {
 			console.log(data)
