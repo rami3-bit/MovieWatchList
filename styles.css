@@ -98,13 +98,6 @@ article {
 .film-details {
 
 }
-h3 {
-	max-width: 200px;
-}
-
-/*Watchlist design*/
-// ...existing code...
-
 /* WATCHLIST */
 #watchlist-container {
     max-width: 800px;
