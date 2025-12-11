@@ -34,16 +34,24 @@ fetch(`https://www.omdbapi.com/?s=${searchBar}&type=movie&apikey=270adad6`)
                                 <h3>${film.Title}</h3>
                                 <p> ⭐ ${film.imdbRating}</p>
                                 <p>Length: ${film.Runtime}</p>
-                                <button> Add watchlist + </button>
+                                <button class="add-watchlist-btn"> Add watchlist + </button>
                                 <p>Description: ${film.Plot}</p>
                             </div>
                         </div>
                         <hr>
                     `;
                 });
-
-                document.getElementById("search-result").innerHTML = filmList;
+                document.getElementById("search-result").
+				innerHTML = filmList;
+			//lägga till watchlist
+				document.querySelectorAll(".add-watchlist-btn").forEach(btn  =>  {
+					btn.addEventListener("click", function() {
+						const watchList = {}
+						
+                        console.log("clicked")
+				})
+			})
             });
-			}
+		}
 	})
 })
