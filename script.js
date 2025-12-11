@@ -24,13 +24,15 @@ fetch(`https://www.omdbapi.com/?s=${searchBar}&type=movie&apikey=270adad6`)
 
             // Vänta på ALLA svar innan du visar HTML
             Promise.all(promises).then(films => {
+				 
                 let filmList = '';
 
                 films.forEach(film => {
+					const posterUrl = film.Poster !== "N/A" ? film.Poster : "https://dummyimage.com/300x450/cccccc/969696?text=No+Poster";
                     filmList += `
                         <div class="film-item">
                             <div class="film-poster">
-                                <img class="film-poster-img" src="${film.Poster}" alt="Poster of ${film.Title}" style="width: 100px;">
+                                <img class="film-poster-img" src="${posterUrl}" alt="Poster of ${film.Title}" style="width: 100px;" onerror="this.src='https://dummyimage.com/300x450/cccccc/969696?text=No+Poster'">
                             </div>
                             <div class="film-details">
                                 <h3>${film.Title}</h3>
@@ -46,12 +48,13 @@ fetch(`https://www.omdbapi.com/?s=${searchBar}&type=movie&apikey=270adad6`)
                 document.getElementById("search-result").
 				innerHTML = filmList;
 			//lägga till watchlist
-				document.querySelectorAll(".add-watchlist-btn").forEach(btn  =>  {
+				document.querySelectorAll(".add-watchlist-btn").forEach(btn => {
 					btn.addEventListener("click", function() {
 						const watchList = {}
 						
                         console.log("clicked")
-				})
+					
+					})
 				})
             });
 		}
