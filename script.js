@@ -75,9 +75,11 @@ fetch(`https://www.omdbapi.com/?s=${searchBar}&type=movie&apikey=270adad6`)
 					const watchListObj = {
 						imdbID: this.dataset.id,
 						title: this.dataset.title,
+						poster: this.dataset.poster,
 						rating: this.dataset.rating,
     					runtime: this.dataset.runtime,
-    					plot: this.dataset.plot
+    					plot: this.dataset.plot,
+
 					}
 					  
         			let watchlist = JSON.parse(localStorage.getItem("WatchListKey")) || [];
