@@ -1,5 +1,3 @@
-
-
 document.getElementById("search-btn").addEventListener("click", function() {
 	const searchBar = document.getElementById("search-bar").value
 
@@ -62,34 +60,46 @@ fetch(`https://www.omdbapi.com/?s=${searchBar}&type=movie&apikey=270adad6`)
                         <hr>
                     `;
                 });
-                document.getElementById("search-result").
-				innerHTML = filmList;
+                document.getElementById("search-result").innerHTML = filmList;
 
-			//lägga till watchlist
-				if (!localStorage.getItem("WatchListKey")) {
-    				localStorage.setItem("WatchListKey", JSON.stringify([]));
-				}
+// lägg till toast-container en gång
+let toast = document.getElementById("toast");
+if (!toast) {
+    const el = document.createElement("div");
+    el.id = "toast";
+    document.body.appendChild(el);
+}
 
 				document.querySelectorAll(".add-watchlist-btn").forEach(btn => {
-					btn.addEventListener("click", function() {
-					const watchListObj = {
-						imdbID: this.dataset.id,
-						title: this.dataset.title,
-						poster: this.dataset.poster,
-						rating: this.dataset.rating,
-    					runtime: this.dataset.runtime,
-    					plot: this.dataset.plot,
+                    btn.addEventListener("click", function() {
+                        const watchListObj = {
+                            imdbID: this.dataset.id,
+                            title: this.dataset.title,
+                            poster: this.dataset.poster,
+                            rating: this.dataset.rating,
+                            runtime: this.dataset.runtime,
+                            plot: this.dataset.plot,
+                        };
 
-					}
-					  
-        			let watchlist = JSON.parse(localStorage.getItem("WatchListKey")) || [];
-       				 watchlist.push(watchListObj);
-        			localStorage.setItem("WatchListKey", JSON.stringify(watchlist));
+                        const key = "WatchListKey";
+                        const list = JSON.parse(localStorage.getItem(key)) || [];
+                        const exists = list.some(f => f.imdbID === watchListObj.imdbID);
 
-        			alert(`${watchListObj.title} has been added to your watchlist!`);
-						console.log(watchListObj)
-					})
-				})
+                        const t = document.getElementById("toast");
+                        if (exists) {
+                            t.textContent = `${watchListObj.title} already in watchlist`;
+                            t.classList.add("show");
+                            setTimeout(() => t.classList.remove("show"), 2000);
+                            return; // stoppa så inget sparas
+                        }
+
+                        list.push(watchListObj);
+                        localStorage.setItem(key, JSON.stringify(list));
+                        t.textContent = `${watchListObj.title} added to watchlist`;
+                        t.classList.add("show");
+                        setTimeout(() => t.classList.remove("show"), 2000);
+                    });
+                });
             });
 		}
 	})

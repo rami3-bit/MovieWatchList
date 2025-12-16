@@ -47,13 +47,25 @@ body {
     background-color: #6A0000;
 }
 .banner {
-	background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(https://images.unsplash.com/photo-1626814026160-2237a95fc5a0?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D);
-	background-size:cover;
-	height: 200px;
-	width: 100%;
-	display: flex;
-	text-align: center;
-	justify-content: center;
+    /* full-bleed banner: make it span the viewport width even if body is constrained */
+    position: relative;
+    left: 50%;
+    right: 50%;
+    margin-left: -50vw;
+    margin-right: -50vw;
+    width: 100vw;
+
+    /* use a larger image request so it stays sharp on wide screens */
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(https://images.unsplash.com/photo-1626814026160-2237a95fc5a0?q=80&w=2400&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D);
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+
+    height: 200px;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
 }
 .banner-content {
 	display: flex;
@@ -90,9 +102,10 @@ article {
 }
 /*titel resultat*/
 .film-item {
-	display: flex;
-	flex-direction: row;
-	justify-content: center;
+	display: grid;
+	grid-template-columns: 120px 1fr; /* poster | details */
+	gap: 1rem;
+	align-items: start;
 	padding: 24px;
 }
 .film-details > * {
@@ -160,9 +173,14 @@ article {
     border-radius: 3px;
 }
 /* FILM POSTER IMAGE */
-.film-poster-img {
+.film-poster {
     width: 120px;
     height: 180px;
+}
+
+.film-poster-img {
+    width: 100%;
+    height: 100%;
     object-fit: cover;
     border: 2px solid rgba(255, 215, 0, 0.5);
     border-radius: 5px;
@@ -328,4 +346,77 @@ article {
     #explore > p {
         font-size: 4rem;
     }
+}
+#toast {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: rgba(0,0,0,0.85);
+    color: #ffd54a;
+    padding: 10px 14px;
+    border-radius: 6px;
+    font-size: 0.95rem;
+    opacity: 0;
+    transform: translateY(10px);
+    transition: opacity 0.2s ease, transform 0.2s ease;
+    pointer-events: none;
+    z-index: 9999;
+}
+#toast.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+.add-watchlist-btn {
+    align-self: start;
+    padding: 0.55rem 1.1rem;
+    border-radius: 6px;
+    border: 2px solid rgba(255,215,0,0.9);
+    background: linear-gradient(180deg, #c52b2b 0%, #861010 100%);
+    color: #fff;
+    font-weight: 700;
+    font-family: 'Cinzel', serif;
+    letter-spacing: 0.4px;
+    text-transform: uppercase;
+    cursor: pointer;
+    box-shadow: 0 6px 14px rgba(0,0,0,0.4);
+    transition: transform 0.12s ease, background 0.12s ease, box-shadow 0.12s ease, color 0.12s ease;
+}
+
+.add-watchlist-btn:hover {
+    transform: translateY(-2px);
+    background: linear-gradient(180deg, #ffd54a 0%, #ff9f1c 100%);
+    color: #111;
+    box-shadow: 0 8px 18px rgba(255, 175, 50, 0.35);
+}
+
+.add-watchlist-btn:active {
+    transform: translateY(0);
+    box-shadow: 0 4px 10px rgba(0,0,0,0.35);
+}
+.empty-watchlist {
+    text-align: center;
+    color: #d7d7d7;
+    font-size: 1rem;
+    margin: 2rem 0;
+}
+.remove-watchlist-btn {
+    padding: 0.5rem 1rem;
+    border-radius: 6px;
+    border: 2px solid rgba(255,215,0,0.7);
+    background: linear-gradient(180deg, #5a0e0e 0%, #320808 100%);
+    color: #fff;
+    font-weight: 700;
+    cursor: pointer;
+    box-shadow: 0 6px 14px rgba(0,0,0,0.35);
+    transition: transform 0.12s ease, background 0.12s ease, box-shadow 0.12s ease, color 0.12s ease;
+}
+.remove-watchlist-btn:hover {
+    transform: translateY(-2px);
+    background: linear-gradient(180deg, #ff8a80 0%, #c62828 100%);
+    color: #111;
+    box-shadow: 0 8px 18px rgba(255, 138, 128, 0.35);
+}
+.remove-watchlist-btn:active {
+    transform: translateY(0);
+    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
 }
