@@ -197,7 +197,6 @@ article {
 /* Tablets (768px och mindre) */
 @media (max-width: 768px) {
     .banner-content {
-        flex-direction: column;
         gap: 0.5rem;
     }
 
@@ -367,6 +366,7 @@ article {
     transform: translateY(0);
 }
 .add-watchlist-btn {
+	margin: .5rem;
     align-self: start;
     padding: 0.55rem 1.1rem;
     border-radius: 6px;
