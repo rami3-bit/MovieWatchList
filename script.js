@@ -61,7 +61,7 @@ fetch(`https://www.omdbapi.com/?s=${searchBar}&type=movie&apikey=270adad6`)
 								</div>	
 								<div>
                                 	<p>
-										Description: ${film.Plot}
+										${film.Plot}
 									</p>
 								</div>
                             </div>
