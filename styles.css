@@ -108,7 +108,14 @@ article {
 	align-items: start;
 	padding: 24px;
 }
-.film-details > * {
+.film-details  * {
+	margin: 0;
+}
+.film-details > div {
+	display: flex;
+	flex-direction: row;
+	justify-content: flex-start;
+	gap: .5rem;
 	margin: 0;
 }
 /* WATCHLIST */

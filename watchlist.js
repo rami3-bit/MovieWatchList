@@ -20,8 +20,7 @@ if (watchlistContainer) {
                     </div>
                     <div class="film-details">
                         <h3>${film.title}</h3>
-                        <p>⭐${film.rating}</p>
-                        <p>Length: ${film.runtime}</p>
+                        <p>⭐${film.rating}</p>                        <p>Length: ${film.runtime}</p>
                         <button class="remove-watchlist-btn" data-id="${film.imdbID}">Remove</button>
                         <p>Description: ${film.plot}</p>
                     </div>

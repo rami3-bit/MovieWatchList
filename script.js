@@ -34,29 +34,38 @@ fetch(`https://www.omdbapi.com/?s=${searchBar}&type=movie&apikey=270adad6`)
                             </div>
 
                             <div class="film-details">
-                                <h3>
-									${film.Title}
-								</h3>
-                                <p>
-								 	⭐${film.imdbRating}
-								 </p>
-                                <p>
-									Length: ${film.Runtime}
-								</p>
-                                <button class="add-watchlist-btn"
-									data-id="${film.imdbID}"
-  									data-title="${film.Title}"
-  									data-poster="${posterUrl}"
-  									data-rating="${film.imdbRating}"
-  									data-runtime="${film.Runtime}"
-  									data-plot="${film.Plot}">
-  									Add +
-								</button>
-                                <p>
-									Description: ${film.Plot}
-								</p>
+								<div>
+                                	<h3>
+										${film.Title}
+									</h3>
+                               		 <p>
+								 		⭐${film.imdbRating}
+									 </p>
+								</div>
+								<div>
+                                	<p>
+										${film.Runtime}
+									</p>
+									<p>
+										${film.Genre}
+									</p>
+                                	<button class="add-watchlist-btn"
+										data-id="${film.imdbID}"
+  										data-title="${film.Title}"
+  										data-poster="${posterUrl}"
+  										data-rating="${film.imdbRating}"
+  										data-runtime="${film.Runtime}"
+  										data-plot="${film.Plot}">
+  										Add +
+									</button>
+								</div>	
+								<div>
+                                	<p>
+										Description: ${film.Plot}
+									</p>
+								</div>
                             </div>
-                        </div>
+							</div>
                         <hr>
                     `;
                 });
